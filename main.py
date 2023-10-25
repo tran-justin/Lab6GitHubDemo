@@ -10,6 +10,14 @@ def encode(password):
     for j in result_list:
         result_str += str(j)
     return result_str
+
+def decode(encoded_password):
+    decoded_password = ''
+    for i in encoded_password:
+        i = int(i) - 3
+        decoded_password += str(i)
+    return decoded_password
+
 while True:
     print("Menu")
     print("-------------")
@@ -28,7 +36,8 @@ while True:
 
         encoded_password = encode(password)
     elif user_input == "2":
-        print("The encoded password is", encoded_password, ", and the original password is", password + ".")
+        decoded_password = decode(encoded_password)
+        print("The encoded password is", encoded_password, ", and the original password is", decoded_password + ".")
         print()
     elif user_input == "3":
         exit()
